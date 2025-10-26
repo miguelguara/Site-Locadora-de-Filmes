@@ -1,0 +1,127 @@
+﻿@model Site_Locadora.Models.Filme
+@{
+    ViewData["Title"] = "Excluir Filme";
+}
+
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #fafafa;
+        color: #333;
+    }
+
+    .delete-container {
+        max-width: 650px;
+        margin: 60px auto;
+        padding: 30px;
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #d32f2f;
+        margin-bottom: 10px;
+    }
+
+    p.subtitle {
+        text-align: center;
+        color: #666;
+        margin-bottom: 30px;
+    }
+
+    .info {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+        .info img {
+            width: 160px;
+            height: 240px;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        }
+
+    .details {
+        flex: 1;
+    }
+
+        .details h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .details p {
+            margin: 6px 0;
+            color: #555;
+        }
+
+    form {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    button {
+        border: none;
+        padding: 12px 28px;
+        border-radius: 8px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-danger {
+        background: #e53935;
+        color: #fff;
+    }
+
+        .btn-danger:hover {
+            background: #c62828;
+            transform: scale(1.05);
+        }
+
+    .btn-secondary {
+        background: #ccc;
+        color: #222;
+        margin-left: 10px;
+    }
+
+        .btn-secondary:hover {
+            background: #b3b3b3;
+            transform: scale(1.05);
+        }
+</style>
+
+<div class="delete-container">
+    <h1>Excluir Filme</h1>
+    <p class="subtitle">Tem certeza que deseja excluir este filme?</p>
+
+    <div class="info">
+        @if (!string.IsNullOrEmpty(Model.Poster))
+        {
+            <img src="@Model.Poster" alt="@Model.Titulo" />
+        }
+        else
+        {
+            <img src="https://via.placeholder.com/160x240?text=Sem+Imagem" alt="Sem imagem" />
+        }
+
+        <div class="details">
+            <h3>@Model.Titulo</h3>
+            <p><strong>Ano:</strong> @Model.Ano</p>
+            <p><strong>Diretor:</strong> @Model.Diretor</p>
+            <p><strong>Gênero:</strong> @Model.Genero</p>
+            <p><strong>IMDb ID:</strong> @Model.ImdbID</p>
+        </div>
+    </div>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn-danger">Excluir</button>
+        <a asp-action="Index" class="btn-secondary">Cancelar</a>
+    </form>
+</div>
+

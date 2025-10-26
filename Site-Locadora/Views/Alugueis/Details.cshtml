@@ -1,0 +1,38 @@
+﻿@model Site_Locadora.Models.Aluguel
+
+@{
+    ViewData["Title"] = "Detalhes do Aluguel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-sm p-4 bg-light rounded">
+        <h1 class="mb-3 text-primary"><i class="bi bi-cart-check-fill"></i> Detalhes do Aluguel</h1>
+
+        <dl class="row mb-4">
+            <dt class="col-sm-3">ID</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Id)</dd>
+
+            <dt class="col-sm-3">Cliente</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.IdCliente)</dd>
+
+            <dt class="col-sm-3">Filme</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.IdFilme)</dd>
+
+            <dt class="col-sm-3">Data de Aluguel</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.DataAluguel)</dd>
+
+            <dt class="col-sm-3">Data de Devolução</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.DataDevolucao)</dd>
+        </dl>
+
+        <div class="d-flex justify-content-start">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary me-2">
+                <i class="bi bi-pencil-square"></i> Editar
+            </a>
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-arrow-left-circle"></i> Voltar
+            </a>
+        </div>
+    </div>
+</div>

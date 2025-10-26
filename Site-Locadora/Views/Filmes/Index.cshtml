@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Site_Locadora.Models.Filme>
+
+@{
+    ViewData["Title"] = "Filmes";
+}
+
+<h1>Filmes</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Adicionar Filme</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Poster</th>
+            <th>Título</th>
+            <th>Ano</th>
+            <th>Diretor</th>
+            <th>Gênero</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var filme in Model)
+        {
+            <tr>
+                <td>
+                    @if (!string.IsNullOrEmpty(filme.Poster))
+                    {
+                        <img src="@filme.Poster" alt="@filme.Titulo" width="50" />
+                    }
+                </td>
+                <td>@filme.Titulo</td>
+                <td>@filme.Ano</td>
+                <td>@filme.Diretor</td>
+                <td>@filme.Genero</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@filme.Id" class="btn btn-info btn-sm">Detalhes</a>
+                    <a asp-action="Edit" asp-route-id="@filme.Id" class="btn btn-warning btn-sm">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@filme.Id" class="btn btn-danger btn-sm">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

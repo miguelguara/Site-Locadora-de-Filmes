@@ -1,0 +1,40 @@
+﻿@model Site_Locadora.Models.Filme
+
+@{
+    ViewData["Title"] = "Editar Filme";
+}
+
+<h1>Editar Filme</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Titulo"></label>
+        <input asp-for="Titulo" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Ano"></label>
+        <input asp-for="Ano" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Diretor"></label>
+        <input asp-for="Diretor" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Genero"></label>
+        <input asp-for="Genero" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Poster"></label>
+        <input asp-for="Poster" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ImdbID"></label>
+        <input asp-for="ImdbID" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary mt-2">Cancelar</a>
+</form>
+

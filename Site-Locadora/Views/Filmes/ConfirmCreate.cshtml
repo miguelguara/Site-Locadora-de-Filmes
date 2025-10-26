@@ -1,0 +1,36 @@
+﻿@model Site_Locadora.Models.Filme
+
+@{
+    ViewData["Title"] = "Confirmar Filme";
+}
+
+<h1>Confirmar Filme</h1>
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="@Model.Poster" class="img-fluid rounded-start" alt="@Model.Titulo" />
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Titulo (@Model.Ano)</h5>
+                <p class="card-text"><strong>Diretor:</strong> @Model.Diretor</p>
+                <p class="card-text"><strong>Gênero:</strong> @Model.Genero</p>
+                <p class="card-text"><strong>IMDB ID:</strong> @Model.ImdbID</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form asp-action="ConfirmCreate" method="post">
+    <input type="hidden" asp-for="Titulo" />
+    <input type="hidden" asp-for="Ano" />
+    <input type="hidden" asp-for="Diretor" />
+    <input type="hidden" asp-for="Genero" />
+    <input type="hidden" asp-for="Poster" />
+    <input type="hidden" asp-for="ImdbID" />
+
+    <button type="submit" class="btn btn-success">Salvar no Banco</button>
+    <a asp-action="Create" class="btn btn-secondary">Voltar</a>
+</form>
+

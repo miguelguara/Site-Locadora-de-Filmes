@@ -1,0 +1,37 @@
+﻿@model Site_Locadora.Models.Aluguel
+
+@{
+    ViewData["Title"] = "Excluir Aluguel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-sm p-4 bg-light rounded">
+        <h1 class="mb-3 text-danger"><i class="bi bi-exclamation-triangle-fill"></i> Excluir Aluguel</h1>
+        <h5 class="mb-4">Tem certeza que deseja excluir este aluguel?</h5>
+
+        <dl class="row mb-4">
+            <dt class="col-sm-3">ID</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Id)</dd>
+
+            <dt class="col-sm-3">Cliente</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.IdCliente)</dd>
+
+            <dt class="col-sm-3">Filme</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.IdFilme)</dd>
+
+            <dt class="col-sm-3">Data de Aluguel</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.DataAluguel)</dd>
+
+            <dt class="col-sm-3">Data de Devolução</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.DataDevolucao)</dd>
+        </dl>
+
+        <form asp-action="Delete" class="d-flex justify-content-start">
+            <input type="submit" value="Excluir" class="btn btn-danger me-2" />
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-arrow-left-circle"></i> Voltar
+            </a>
+        </form>
+    </div>
+</div>

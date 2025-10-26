@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Buscar Filme na OMDb";
+}
+
+<h1>Buscar Filme na OMDb</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="titulo">Título do Filme</label>
+        <input type="text" name="titulo" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Buscar</button>
+</form>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="text-danger mt-2">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}
+

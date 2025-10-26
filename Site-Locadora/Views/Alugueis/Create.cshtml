@@ -1,0 +1,57 @@
+﻿@model Site_Locadora.Models.Aluguel
+
+@{
+    ViewData["Title"] = "Criar Aluguel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-sm p-4 bg-light rounded">
+        <h1 class="mb-3 text-primary"><i class="bi bi-cart-plus-fill"></i> Criar Aluguel</h1>
+
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="IdCliente" class="form-label">Cliente</label>
+                <select asp-for="IdCliente" class="form-select" asp-items="ViewBag.Clientes">
+                    <option value="">-- Selecione um cliente --</option>
+                </select>
+                <span asp-validation-for="IdCliente" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="IdFilme" class="form-label">Filme</label>
+                <select asp-for="IdFilme" class="form-select" asp-items="ViewBag.Filmes">
+                    <option value="">-- Selecione um filme --</option>
+                </select>
+                <span asp-validation-for="IdFilme" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="DataAluguel" class="form-label"></label>
+                <input asp-for="DataAluguel" class="form-control" type="date" />
+                <span asp-validation-for="DataAluguel" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="DataDevolucao" class="form-label"></label>
+                <input asp-for="DataDevolucao" class="form-control" type="date" />
+                <span asp-validation-for="DataDevolucao" class="text-danger"></span>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <input type="submit" value="Criar" class="btn btn-success">
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left-circle"></i> Voltar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
