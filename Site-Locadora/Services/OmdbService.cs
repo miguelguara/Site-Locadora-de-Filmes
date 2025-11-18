@@ -11,8 +11,8 @@ namespace Site_Locadora.Services
         public OmdbService(HttpClient http, IConfiguration config)
         {
             _http = http;
-            _apiKey = config["OMDb:ApiKey"];      // pegar do appsettings.json
-            _baseUrl = config["OMDb:BaseUrl"];    // normalmente http://www.omdbapi.com/
+            _apiKey = config["OMDb:ApiKey"];      
+            _baseUrl = config["OMDb:BaseUrl"];   
         }
 
         public async Task<Filme?> GetFilmeByTitleAsync(string titulo)
