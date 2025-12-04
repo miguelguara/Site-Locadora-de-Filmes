@@ -14,7 +14,6 @@ namespace Site_Locadora.Controllers
             var clientes = clienteDao.Listar();
             return View(clientes);
         }
-
   
         public IActionResult Details(int id)
         {

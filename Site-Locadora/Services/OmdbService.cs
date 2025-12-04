@@ -28,7 +28,7 @@ namespace Site_Locadora.Services
                 if (response == null || response.Response == "False")
                     return null;
 
-                // Mapear para nosso modelo Filme
+                //Passa as informações obtidas pela API para a classe filme
                 return new Filme
                 {
                     Titulo = response.Title,
